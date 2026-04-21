@@ -1,10 +1,14 @@
 '''
+
     list : group of different type data
             int,float,char,string,boolean
      list []
      ,data index start 0
 
      list ma lib function
+
+    A list is a collection of items (can store multiple values in one variable).
+     
 '''
 l =[1,2,1.1,2.2,"tops",True,1,2,10,"python",False]
 
