@@ -1,0 +1,39 @@
+object oritend prgo
+
+1) class and object
+3) inheritance
+4) polimorpiztiom 
+5) abstrastion 
+6) enculation 
+
+
+1) Class: 
+
+	-> class is group of deffernt type of variable and function.
+	-> it's object
+
+object : it 's in intance of class 
+	: simple class ma create thay
+
+2) inheritance :
+	it the propery one class to another class property.
+
+	create a new class form an exting class is called inheritance. 
+
+ inheritance type 
+	1) Single level : A - B 
+	2) multi level : A- B - C
+	3) Multiple : A - C, B - C
+	4) hirachical : A -B , A - C 
+	5) hybrid : any inheritance to combine
+
+3) polimorication :
+  	method overloading (Compile time):
+	 -> one class and multiple method name same but deffernet parameter.
+
+	Method Overriding (run-time)
+	-> when same method prototype in both base class and drived class if  called method using the object of drived class. only drived class method will called so you can say thay method of drived class override the method of base class.
+
+	-> class have multiple and method name same like inheritance it called overrding.
+
+4) enc : varibale and function ma use thay
