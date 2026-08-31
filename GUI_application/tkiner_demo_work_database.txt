@@ -1,0 +1,138 @@
+tkiker banya pachi
+
+1) database connect 
+    : database name 
+    :table name : student
+    : col name : id,fname,lname,email,mobile
+
+
+database and python connect karvu pade lib :
+
+windoe+r : cmd 
+
+cmd : python install kari utile modelu che: pip kevay 
+
+comand lakhava no : pip : python package installer
+
+google mthi python mysql connectrot command aapi dese
+cmd : pip install mysql-connector-python
+
+install thaya pachi connect karva nu python code ma
+
+import mysql.connector
+
+def create_conn():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="tkinter_demo"
+)
+
+print(create_conn())
+
+output :
+<mysql.connector.connection_cext.CMySQLConnection object at 0x0000023B73FD3230>
+
+
+
+
+:- have msg show thay add aetle use kari you
+import tkinter.messagebox as msg
+
+# data insert karva sql ma add
+def insert_data():
+    print("insert data")
+    if e_fname.get() == "" or e_lname.get()=="" or e_email.get()=="" or e_mobile.get()=="" :
+        msg.showinfo("Insert Status","All Fields Are Mandatory")
+    else:
+        conn = create_conn()
+        # aeni pase use kari python cursor my sql query lakhva
+        cursor = conn.cursor()
+        # sql in query lakho
+        query = "insert into student(fname,lname,email,mobile) values(%s,%s,%s,%s)"
+        # tuple banse
+        argus = (e_fname.get(),e_lname.get(),e_email.get(),e_mobile.get())
+        #query and argus nakhvanu
+        cursor.execute(query,argus)
+        conn.commit()
+        conn.close()
+        #form data jaya pachi data remove thava joei ye
+        e_fname.delete(0,'end')
+        e_lname.delete(0,'end')
+        e_email.delete(0,'end')
+        e_mobile.delete(0,'end')
+        msg.showinfo("Insert Status","Data Inserted succeessfully")
+
+# serach
+def search_data():
+    print("serach data")
+     #form data jaya pachi data remove thava joei ye
+    e_fname.delete(0,'end')
+    e_lname.delete(0,'end')
+    e_email.delete(0,'end')
+    e_mobile.delete(0,'end')
+    if e_id.get()=="":
+        msg.showinfo("Searcg Status","Id Is Mandatory")
+    else:
+        conn = create_conn()
+        cursor = conn.cursor()
+        query ="select * from student where id=%s"
+        # tuple hoy , karvu padse
+        argus =(e_id.get(),)
+        cursor.execute(query,argus)
+        row = cursor.fetchall()
+
+        # list ma data aayo under type che
+        # print(row)
+        if row:
+            e_fname.insert(0,row[0][1])
+            e_lname.insert(0,row[0][2])
+            e_email.insert(0,row[0][3])
+            e_mobile.insert(0,row[0][4])
+        else:
+            msg.showinfo("Search Status","Id not Found")
+        conn.close()
+
+
+# update fucntion
+def update_data():
+    print("update data")
+    if e_fname.get() == "" or e_lname.get()=="" or e_email.get()=="" or e_mobile.get()=="" or e_fname.get()=="" :
+        msg.showinfo("Update Status","All Fields Are Mandatory")
+    else:
+        conn = create_conn()
+        cursor = conn.cursor()
+        query="update student set fname=%s,lname=%s,email=%s,mobile=%s where id=%s"
+        argus=(e_fname.get(),e_lname.get(),e_email.get(),e_mobile.get(),e_id.get())
+        cursor.execute(query,argus)
+        conn.commit()
+        conn.close()
+         #form data jaya pachi data remove thava joei ye
+        e_fname.delete(0,'end')
+        e_lname.delete(0,'end')
+        e_email.delete(0,'end')
+        e_mobile.delete(0,'end')
+        msg.showinfo("Update Status","Data updated successfully")
+
+
+
+def delete_data():
+    print("delete data")
+    if  e_fname.get()=="" :
+        msg.showinfo("Delete Status","ID is Mandatory")
+    else:
+        conn = create_conn()
+        cursor = conn.cursor()
+        query="delete from student where id=%s"
+        argus=(e_id.get(),)
+        cursor.execute(query,argus)
+        conn.commit()
+        conn.close()
+         #form data jaya pachi data remove thava joei ye
+        e_fname.delete(0,'end')
+        e_lname.delete(0,'end')
+        e_email.delete(0,'end')
+        e_mobile.delete(0,'end')
+        msg.showinfo("Delete Status","Data Delete successfully")
+
