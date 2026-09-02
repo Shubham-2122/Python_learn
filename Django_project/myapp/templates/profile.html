@@ -1,0 +1,65 @@
+<!-- jinja code : django expersion -->
+{% extends 'header.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>Welcome to Profile</h1>
+    <!-- post secure method submit data -->
+     {% if msg %}
+     <b style="color: blue;" >{{msg}}</b>
+    {% endif %}
+    <form method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+        {%  csrf_token %}
+        <table>
+            <tr>
+                <td>First Name </td>
+                <td><input type="text" name="fname" value="{{user.fname}}"></td>
+            </tr>
+             <tr>
+                <td>Last Name </td>
+                <td><input type="text" name="lname" value="{{user.lname}}"></td>
+            </tr>
+            <tr>
+                <td>Email </td>
+                <td><input type="email" name="email" readonly value="{{user.email}}"></td>
+            </tr>
+             <tr>
+                <td>mobile </td>
+                <td><input type="tel" name="mobile" value="{{user.mobile}}"></td>
+            </tr>
+             <tr>
+                <td>Address </td>
+                <td><textarea rows="5" cols="22"  name="address" id="">{{user.address}}</textarea></td>
+            </tr>
+            <tr>
+                <td>Profile Picture</td>
+                <td><input type="file" name="profile_picture" id=""></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="{{user.profile_picture.url}}" style="width: 150px;height: 100px;" alt="no Images">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input class="btn btn-primary" type="submit" value="Update Profile ">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+
+</html>
+{% endblock %}

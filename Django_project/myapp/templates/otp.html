@@ -1,0 +1,41 @@
+<!-- jinja code : django expersion -->
+{% extends 'header.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h1>Verfiy OTP</h1>
+    <!-- post secure method submit data -->
+     {% if msg %}
+     <b style="color: blue;" >{{msg}}</b>
+    {% endif %}
+    <form method="post" action="{% url 'verify-otp' %}">
+        {%  csrf_token %}
+        <table>
+           
+            <tr>
+                <td>OTP </td>
+                <td><input type="text" name="otp"></td>
+            </tr>
+            <tr>
+                <td >
+                    <input class="btn btn-primary" type="submit" value="Verify OTP">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+
+</html>
+{% endblock %}

@@ -1,0 +1,77 @@
+Project_flow :
+
+framework : 	Project / webapplication 
+		dynamic application banava
+		admin work : webapplication ma hoy j
+		user work : user use 
+		table show thay : database
+
+Adavantage : admin penal ready aape che
+	   : data base banaei ne aape 
+	   : table banvi dese
+	   : query bhi lakhi dese  
+
+Djago install stpes
+
+vitural enviroment : install thase : active : install floder ma thase :oprating system thay nahi
+
+tamre jetla vitural enviroment banvi sakho cho
+
+steps first: admin penel kevi rite login thay
+
+1) djago_floder name : inside enimoment install karshu : myenev : je name rakhu hoy ae
+ 
+	1) cmd : python -m venv myvenv
+
+	2) cmd : .\myvenv\Scripts\activate 
+	
+	3) output : (myvenv) PS E:\Python_learn\Django_project> 
+		vitural active start thaei gayou
+
+	have next libery install dajgo
+	4) cmd : pip install django
+
+
+
+Project(container) vs app() 
+
+project banavo aeni uder admin penal banse Automati malse
+app aeni under base
+	-> . current floder ma
+	5) cmd : django-admin startproject mysite .
+
+		have mane mysite: project banvi didho aema many file aapi
+		1_) aema settings.py and urls.py important file che
+		-> under setting ma : install app ma banveli che
+		-> middlware banave la che
+		-> # Database sqlite3
+		-> TIME_ZONE = 'Asia/Kolkata' : settings change mysite
+	
+		2_) aema urls.py 
+		
+ 		admin url path aapelu che j 
+
+		3) user mate app banavi pade
+	
+	6) project run karva 
+	cmd : python .\manage.py runserver 
+
+	7) jo na aave to project change che table,auth, badhu change kari des
+	cmd : python .\manage.py migrate
+
+	Django admisitrion 
+	username , and password banava na
+
+	8) createsuperuser banve shu
+	cmd :  python .\manage.py createsuperuser
+		
+	Username (leave blank to use 'hp'): tops
+	Email address: shubhamjadav.tops@gmail.com
+	Password: test@123 
+	Password (again): test@123 
+	Superuser created successfully.
+
+
+
+	
+						
